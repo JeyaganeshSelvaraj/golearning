@@ -1,4 +1,4 @@
-package generics
+package types
 
 import "fmt"
 
@@ -10,7 +10,4 @@ type Student struct {
 
 func (s Student) String() string {
 	return fmt.Sprintf("ID: %d, FirstName: %s, LastName: %s", s.ID, s.FirstName, s.LastName)
-}
-func addStudent[T any](student T, lst []T) []T {
-	return append(lst, student)
 }

@@ -12,7 +12,7 @@ var output2 float64
 var output3 float64
 var output4 float64
 var wg sync.WaitGroup
-var max = 1_000_000
+var max = 10_000_000
 
 func worker1() {
 	defer wg.Done()
@@ -76,9 +76,10 @@ func TestConcurrent(t *testing.T) {
 	go worker2()
 	go worker3()
 	go worker4()
+	wg.Wait()
 	elapsed = time.Since(start)
 	fmt.Println("\nTime for 4 workers in concurrent: ", elapsed)
 	fmt.Printf("Output1: %f \nOutput2: %f  \nOutput3: %f  \nOutput4: %f\n",
 		output1, output2, output3, output4)
-	wg.Wait()
+
 }
